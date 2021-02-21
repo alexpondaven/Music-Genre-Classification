@@ -27,8 +27,5 @@ Converted MFCC mean and covariance matrix features into Pandas dataframe. Traine
 
 ### <a href="https://github.com/alexpondaven/Music-Genre-Classification/blob/main/4-Models%20using%20Mel%20Spectogram%20(including%20CNN).ipynb">4 - Models using Mel Spectrogram (including Convolutional Neural Network)</a>
 
-Used Librosa to extract Mel spectrogram from audio samples. This unstructured data works better for deep learning models like Convolutional Neural Networks. Cleaned data to prepare it for the CNN. Working on preventing the model from overfitting by:
-- Adding data (another notebook coming soon aimed at data augmentation)
-- Reducing complexity of CNN
-- Applying dropout
+Used Librosa to extract Mel spectrogram from audio samples. This unstructured data works better for deep learning models like Convolutional Neural Networks. CNN model has 90% accuracy on test data. At the end of the notebook, one can listen to the audio sample and then see what the actual genre of the music is, as well as a barplot of the model's scores for each genre for the sample.
 
