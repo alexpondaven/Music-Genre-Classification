@@ -1,20 +1,19 @@
+# This file records audio from the microphone and collects data every 3 seconds. 
+# These 3 second audio samples are passed through the CNN model to predict the genre of the music which it received.
+# Every classification updates a matplotlib plot that shows the model's scores for each genre for that 3 second sample.
+# once started, it continues classifying the input sound forever until the script is interrupted.
+
 import tensorflow as tf
 
 import numpy as np
-import pandas as pd
 
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from matplotlib import cm
 import seaborn as sns
-import math, random, pickle, os, operator
-from tempfile import TemporaryFile
 
-from scipy.io import wavfile
-from python_speech_features import mfcc
 import librosa
 import librosa.display
-import IPython.display as ipd
+
 import pyaudio
 import time
 import wave
@@ -37,9 +36,9 @@ stream = audio.open(format=FORMAT, channels=CHANNELS,
                 rate=RATE, input=True,
                 frames_per_buffer=CHUNK)
 
-
+plt.figure(figsize=(10,5))
 #loop for recording 3 second samples from microphone and classifying genre
-for _ in range(10):
+while(1):
     # print("recording...")
     frames = []
     
@@ -63,13 +62,15 @@ for _ in range(10):
     genres = genres.split()
 
     spect = audio_spect.reshape(1,128,130,1) / 255.0
-    plt.figure(figsize=(10,5))
+    
+    plt.clf()
     sns.barplot(x=genres,y=model.predict(spect)[0])
     plt.title("Model Prediction");
-    plt.show()
+   
+    plt.pause(0.05)
 
  
- 
+plt.show()
 # stop Recording
 stream.stop_stream()
 stream.close()
