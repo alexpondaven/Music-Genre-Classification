@@ -29,3 +29,7 @@ Converted MFCC mean and covariance matrix features into Pandas dataframe. Traine
 
 Used Librosa to extract Mel spectrogram from audio samples. This unstructured data works better for deep learning models like Convolutional Neural Networks. CNN model has 90% accuracy on test data. At the end of the notebook, one can listen to the audio sample and then see what the actual genre of the music is, as well as a barplot of the model's scores for each genre for the sample.
 
+### <a href="https://github.com/alexpondaven/Music-Genre-Classification/blob/main/5%20-%20Predicting%20music%20genre%20live.ipynb">5 - Predicting music genre live</a>
+
+Uses microphone input to take 3 second audio samples and classify them with the CNN model to predict the music genre. A matplotlib plot shows the scores the model gives for each of the genres based on the classification of the 3 second sample. This plot is updated in real-time as classifications are made (every 3 seconds). The code can also be run through the python file: <a href="https://github.com/alexpondaven/Music-Genre-Classification/blob/main/genre_classify_mic.py">genre_classify_mic.py</a>
+
