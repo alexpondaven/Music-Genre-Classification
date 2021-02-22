@@ -23,18 +23,28 @@ model = tf.keras.models.load_model("model80.h5")
 
 # Audio
 FORMAT = pyaudio.paInt16
-CHANNELS = 2
+CHANNELS = 1
 RATE = 44100
 CHUNK = 1024
 RECORD_SECONDS = 3
 WAVE_OUTPUT_FILENAME = "file.wav"
  
 audio = pyaudio.PyAudio()
- 
+#select input device
+info = audio.get_host_api_info_by_index(0)
+numdevices = info.get('deviceCount')
+for i in range(0, numdevices):
+        if (audio.get_device_info_by_host_api_device_index(0, i).get('maxInputChannels')) > 0:
+            print("Input Device id ", i, " - ", audio.get_device_info_by_host_api_device_index(0, i).get('name'))
+
+# Above code outputs the index of all input devices
+# Change this parameter to the index of the input device you would like to take the input from
+device_index=1
+
 # start Recording
 stream = audio.open(format=FORMAT, channels=CHANNELS,
                 rate=RATE, input=True,
-                frames_per_buffer=CHUNK)
+                frames_per_buffer=CHUNK, input_device_index=device_index)
 
 plt.figure(figsize=(10,5))
 #loop for recording 3 second samples from microphone and classifying genre
@@ -65,7 +75,7 @@ while(1):
     
     plt.clf()
     sns.barplot(x=genres,y=model.predict(spect)[0])
-    plt.title("Model Prediction");
+    plt.title("Model Prediction")
    
     plt.pause(0.05)
 
