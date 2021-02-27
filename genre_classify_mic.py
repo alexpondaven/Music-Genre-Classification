@@ -1,4 +1,4 @@
-# This file records audio from the microphone and collects data every 3 seconds. 
+# This file records audio from the microphone and collects 3 second audio samples (updating ever 0.5 seconds). 
 # These 3 second audio samples are passed through the CNN model to predict the genre of the music which it received.
 # Every classification updates a matplotlib plot that shows the model's scores for each genre for that 3 second sample.
 # once started, it continues classifying the input sound forever until the script is interrupted.
@@ -94,7 +94,9 @@ while(1):
     
     plt.clf()
     sns.barplot(x=genres,y=model.predict(spect)[0])
-    plt.title("Model Prediction")
+    plt.title("Music Genre Classification - CNN Model Prediction")
+    plt.xlabel("Genre")
+    plt.ylabel("Model Score (on 3 second sample)")
    
     plt.pause(0.05)
 
