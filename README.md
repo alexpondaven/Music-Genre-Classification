@@ -1,7 +1,7 @@
 # Music Genre Classification
 
 Video demonstration of live music genre classification: https://www.youtube.com/watch?v=OqOR4L5_XtM&feature=youtu.be&ab_channel=Engineer
-<a href=https://www.youtube.com/watch?v=OqOR4L5_XtM&feature=youtu.be&ab_channel=Engineer><img src="https://github.com/alexpondaven/Music-Genre-Classification/blob/main/readme_pic.PNG" alt="video link"> </a>
+<a href="https://www.youtube.com/watch?v=OqOR4L5_XtM&feature=youtu.be&ab_channel=Engineer"><img src="https://github.com/alexpondaven/Music-Genre-Classification/blob/main/readme_pic.PNG" alt="video link"> </a>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
