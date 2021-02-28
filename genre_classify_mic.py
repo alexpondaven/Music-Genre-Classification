@@ -26,7 +26,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 CHUNK = 1024
-RECORD_SECONDS = 0.5
+RECORD_SECONDS = 1
 WAVE_OUTPUT_FILENAME = "out.wav"
 
 genres = 'blues classical country disco hiphop jazz metal pop reggae rock'
